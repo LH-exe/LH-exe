@@ -57,7 +57,7 @@
   </style>
   
   <g class="terminal-window">
-    <rect width="720" height="440" class="bg" />
+    <rect width="720" height="465" class="bg" />
     <path d="M0,12 Q0,0 12,0 L708,0 Q720,0 720,12 L720,38 L0,38 Z" class="header" />
     
     <circle cx="22" cy="19" r="6" class="dot dot-red" />
