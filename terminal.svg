@@ -1,127 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" width="100%" max-width="720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 490" width="100%" max-width="720">
   <style>
-    /* Terminal Base Styling */
-    .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1.5; rx: 12px; }
-    .header { fill: #161b22; rx: 12px; }
+    .bg { fill: #020406; stroke: #1e293b; stroke-width: 1.5; rx: 0px; }
+    .header { fill: #070b11; rx: 0px; border-bottom: 1px solid #1e293b; }
     .dot { stroke-width: 0; }
-    .dot-red { fill: #ff5f56; }
-    .dot-yellow { fill: #ffbd2e; }
-    .dot-green { fill: #27c93f; }
-    .title { font-family: 'Fira Code', Consolas, Monaco, monospace; font-size: 13px; fill: #8b949e; text-anchor: middle; }
+    .dot-red { fill: #ff3366; }
+    .dot-yellow { fill: #f59e0b; }
+    .dot-green { fill: #00ff66; }
+    .title { font-family: 'Fira Code', Consolas, Monaco, monospace; font-size: 12px; fill: #64748b; text-anchor: middle; letter-spacing: 0.1em; }
     
-    /* Code/Terminal Text Customization */
-    .terminal-text { font-family: 'Fira Code', Consolas, Monaco, monospace; font-size: 14px; fill: #e6edf3; }
-    .prompt { fill: #58a6ff; font-weight: bold; }
+    .terminal-text { font-family: 'Fira Code', Consolas, Monaco, monospace; font-size: 13px; fill: #cbd5e1; }
+    .prompt { fill: #00f0ff; font-weight: bold; }
     .cmd { fill: #00ff66; }
-    .accent { fill: #ff7b72; }
-    .string { fill: #a5d6ff; }
-    .keyword { fill: #ff7b72; }
+    .accent { fill: #00f0ff; }
+    .string { fill: #93c5fd; }
+    .keyword { fill: #f43f5e; }
+    .comment { fill: #475569; font-style: italic; }
     
-    /* Smooth Window Scale Animation (Runs Once) */
     .terminal-window {
-      transform-origin: 360px 235px;
-      animation: openTerminal 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transform-origin: 360px 245px;
+      animation: openTerminal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     
-    /* True Opacity Fade-In Sequence */
-    .line { opacity: 0; animation: fadeInLine 0.25s ease-out forwards; }
-    .cursor { animation: blink 0.9s infinite; fill: #00ff66; }
+    .line { opacity: 0; animation: fadeInLine 0.2s ease-out forwards; }
+    .cursor { animation: blink 0.9s infinite; fill: #00f0ff; }
     
     @keyframes openTerminal {
-      0% { transform: scale(0.3); opacity: 0; }
+      0% { transform: scale(0.85); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
     @keyframes fadeInLine {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      0% { opacity: 0; transform: translateY(2px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
     
-    /* Fluid Cascade Delays */
-    .l1  { animation-delay: 0.50s; }
-    .l2  { animation-delay: 0.68s; }
-    .l3  { animation-delay: 0.78s; }
-    .l4  { animation-delay: 0.88s; }
-    .l5  { animation-delay: 0.98s; }
-    .l6  { animation-delay: 1.08s; }
-    .l7  { animation-delay: 1.18s; }
-    .l8  { animation-delay: 1.28s; }
-    .l9  { animation-delay: 1.38s; }
-    .l10 { animation-delay: 1.48s; }
-    .l11 { animation-delay: 1.58s; }
-    .l12 { animation-delay: 1.68s; }
-    .l13 { animation-delay: 1.78s; }
+    .l1  { animation-delay: 0.20s; }
+    .l2  { animation-delay: 0.35s; }
+    .l3  { animation-delay: 0.45s; }
+    .l4  { animation-delay: 0.55s; }
+    .l5  { animation-delay: 0.65s; }
+    .l6  { animation-delay: 0.75s; }
+    .l7  { animation-delay: 0.85s; }
+    .l8  { animation-delay: 0.95s; }
+    .l9  { animation-delay: 1.05s; }
+    .l10 { animation-delay: 1.15s; }
+    .l11 { animation-delay: 1.25s; }
+    .l12 { animation-delay: 1.35s; }
+    .l13 { animation-delay: 1.45s; }
+    .l14 { animation-delay: 1.55s; }
   </style>
   
-  <!-- Animated Master Window Container -->
   <g class="terminal-window">
-    <!-- Window Frame Backing (Height adjusted to 470 for padding) -->
-    <rect width="720" height="470" class="bg" />
-    <path d="M0,12 Q0,0 12,0 L708,0 Q720,0 720,12 L720,38 L0,38 Z" class="header" />
+    <rect width="720" height="490" class="bg" />
+    <path d="M0,0 L720,0 L720,34 L0,34 Z" class="header" />
+    <line x1="0" y1="34" x2="720" y2="34" stroke="#1e293b" stroke-width="1" />
     
-    <!-- Window OS Control Interconnects -->
-    <circle cx="22" cy="19" r="6" class="dot dot-red" />
-    <circle cx="42" cy="19" r="6" class="dot dot-yellow" />
-    <circle cx="62" cy="19" r="6" class="dot dot-green" />
-    <text x="360" y="23" class="title">linhan@LH-exe:~</text>
+    <circle cx="18" cy="17" r="5" class="dot dot-red" />
+    <circle cx="34" cy="17" r="5" class="dot dot-yellow" />
+    <circle cx="50" cy="17" r="5" class="dot dot-green" />
+    <text x="360" y="21" class="title">lh-exe@hexcent-core:~$</text>
     
-    <!-- Main Shell Runtime Space -->
-    <g transform="translate(25, 75)" class="terminal-text">
-      <!-- Command Initialization Line -->
+    <g transform="translate(24, 65)" class="terminal-text">
       <g class="line l1">
-        <text x="0" y="0"><tspan class="prompt">linhan@LH-exe:~$</tspan> <tspan class="cmd">cat profile.json</tspan></text>
+        <text x="0" y="0"><tspan class="prompt">lh-exe@hexcent:~$</tspan> <tspan class="cmd">cat system_manifest.json</tspan></text>
       </g>
       
-      <!-- Identity Object Mapping -->
       <g class="line l2">
-        <text x="0" y="30"><tspan class="keyword">{</tspan></text>
+        <text x="0" y="25"><tspan class="keyword">{</tspan></text>
       </g>
       <g class="line l3">
-        <text x="25" y="60"><tspan class="accent">"identity"</tspan>: <tspan class="string">"Lin Han"</tspan>,</text>
+        <text x="20" y="50"><tspan class="accent">"operator"</tspan>: <tspan class="string">"Lin Han"</tspan>,</text>
       </g>
-      
-      <!-- Core Languages Structure Array -->
       <g class="line l4">
-        <text x="25" y="90"><tspan class="accent">"languages"</tspan>: <tspan class="keyword">[</tspan></text>
+        <text x="20" y="75"><tspan class="accent">"specialization"</tspan>: <tspan class="keyword">[</tspan><tspan class="string">"Quantitative Systems"</tspan>, <tspan class="string">"Cybersecurity"</tspan>, <tspan class="string">"Full-Stack"</tspan><tspan class="keyword">]</tspan>,</text>
       </g>
       <g class="line l5">
-        <text x="50" y="120"><tspan class="string">"JavaScript"</tspan>, <tspan class="string">"HTML"</tspan>, <tspan class="string">"CSS"</tspan>, <tspan class="string">"Python"</tspan>,</text>
+        <text x="20" y="100"><tspan class="accent">"languages"</tspan>: <tspan class="keyword">[</tspan></text>
       </g>
       <g class="line l6">
-        <text x="50" y="150"><tspan class="string">"Lua"</tspan>, <tspan class="string">"Java"</tspan>, <tspan class="string">"C"</tspan>, <tspan class="string">"Pine Script"</tspan>,</text>
+        <text x="40" y="125"><tspan class="string">"Python"</tspan>, <tspan class="string">"C++"</tspan>, <tspan class="string">"C"</tspan>, <tspan class="string">"TypeScript"</tspan>, <tspan class="string">"JavaScript"</tspan>,</text>
       </g>
       <g class="line l7">
-        <text x="50" y="180"><tspan class="string">"OCaml"</tspan>, <tspan class="string">"C++"</tspan></text>
+        <text x="40" y="150"><tspan class="string">"Java"</tspan>, <tspan class="string">"OCaml"</tspan>, <tspan class="string">"Lua"</tspan>, <tspan class="string">"Pine Script"</tspan>, <tspan class="string">"SQL"</tspan></text>
       </g>
       <g class="line l8">
-        <text x="25" y="210"><tspan class="keyword">]</tspan>,</text>
+        <text x="20" y="175"><tspan class="keyword">]</tspan>,</text>
       </g>
-      
-      <!-- Project Tracking Core -->
       <g class="line l9">
-        <text x="25" y="240"><tspan class="accent">"active_project"</tspan>: <tspan class="string">"Hexnet"</tspan>,</text>
+        <text x="20" y="200"><tspan class="accent">"active_deployments"</tspan>: <tspan class="keyword">{</tspan></text>
       </g>
-      
-      <!-- Additional Strategic System Attributes -->
       <g class="line l10">
-        <text x="25" y="270"><tspan class="accent">"operations"</tspan>: <tspan class="keyword">[</tspan><tspan class="string">"systems_dev"</tspan>, <tspan class="string">"network_architecture"</tspan><tspan class="keyword">]</tspan>,</text>
+        <text x="40" y="225"><tspan class="accent">"hub"</tspan>: <tspan class="string">"HexCent // Multi-Project Platform"</tspan>,</text>
       </g>
       <g class="line l11">
-        <text x="25" y="300"><tspan class="accent">"status"</tspan>: <tspan class="string">"active_execution"</tspan></text>
+        <text x="40" y="250"><tspan class="accent">"quant_engine"</tspan>: <tspan class="string">"Hexnet v3.0 // High-Throughput Backtester"</tspan></text>
       </g>
-      
-      <!-- File Closing Bracket -->
       <g class="line l12">
-        <text x="0" y="330"><tspan class="keyword">}</tspan></text>
+        <text x="20" y="275"><tspan class="keyword">}</tspan>,</text>
+      </g>
+      <g class="line l13">
+        <text x="20" y="300"><tspan class="accent">"status"</tspan>: <tspan class="string">"nominal // active_execution"</tspan></text>
+      </g>
+      <g class="line l14">
+        <text x="0" y="325"><tspan class="keyword">}</tspan></text>
       </g>
       
-      <!-- Standby Console State Intercept -->
-      <g class="line l13" transform="translate(0, 360)">
-        <text x="0" y="0"><tspan class="prompt">linhan@LH-exe:~$</tspan></text>
-        <rect x="135" y="-12" width="8" height="15" class="cursor" />
+      <g class="line l14" transform="translate(0, 355)">
+        <text x="0" y="0"><tspan class="prompt">lh-exe@hexcent:~$</tspan></text>
+        <rect x="145" y="-11" width="8" height="14" class="cursor" />
       </g>
     </g>
   </g>
