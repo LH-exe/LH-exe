@@ -2,8 +2,19 @@
   <style>
     <![CDATA[
     .bg { fill: #020406; stroke: #1e293b; stroke-width: 1.5; }
-    .header { fill: #0d1520; }
+    .header { fill: #070b11; }
     .header-border { stroke: #1e293b; stroke-width: 1; }
+    
+    /* Active Centered Tab Outline */
+    .tab-frame {
+      fill: #020406;
+      stroke: #334155;
+      stroke-width: 1;
+    }
+    .tab-top-accent {
+      stroke: #00f0ff;
+      stroke-width: 1.5;
+    }
     
     .dot { stroke-width: 0; }
     .dot-red { fill: #ff3366; }
@@ -12,7 +23,7 @@
     
     .title {
       font-family: 'Fira Code', 'Geist Mono', Consolas, monospace;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-anchor: middle;
@@ -70,19 +81,28 @@
     ]]>
   </style>
   
+  <!-- Terminal Outer Canvas -->
   <rect width="720" height="400" class="bg" />
   
+  <!-- Window Header Bar -->
   <path d="M0,0 L720,0 L720,34 L0,34 Z" class="header" />
   <line x1="0" y1="34" x2="720" y2="34" class="header-border" />
   
+  <!-- Window Control Dots -->
   <circle cx="18" cy="17" r="5" class="dot dot-red" />
   <circle cx="34" cy="17" r="5" class="dot dot-yellow" />
   <circle cx="50" cy="17" r="5" class="dot dot-green" />
   
+  <!-- High-Contrast Tab Outline & Top Accent -->
+  <rect x="245" y="6" width="230" height="22" class="tab-frame" />
+  <line x1="245" y1="6" x2="475" y2="6" class="tab-top-accent" />
+  
+  <!-- Tab Text -->
   <text x="360" y="21" class="title">
-    <tspan fill="#00f0ff">lh-exe</tspan><tspan fill="#475569">@</tspan><tspan fill="#94a3b8">hexcent-core</tspan><tspan fill="#475569">:~</tspan>
+    <tspan fill="#00f0ff">lh-exe</tspan><tspan fill="#475569">@</tspan><tspan fill="#cbd5e1">hexcent-core</tspan><tspan fill="#475569">:~</tspan>
   </text>
   
+  <!-- Terminal Content Body -->
   <g transform="translate(24, 60)" class="terminal-text">
     <g class="line l1">
       <text x="0" y="0"><tspan class="prompt">lh-exe@hexcent:~$</tspan> <tspan class="cmd">cat system_manifest.json</tspan></text>
