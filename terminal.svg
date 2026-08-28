@@ -75,7 +75,7 @@
         <text x="20" y="50"><tspan class="accent">"operator"</tspan>: <tspan class="string">"Lin Han"</tspan>,</text>
       </g>
       <g class="line l4">
-        <text x="20" y="75"><tspan class="accent">"specialization"</tspan>: <tspan class="keyword">[</tspan><tspan class="string">"Quantitative Systems"</tspan>, <tspan class="string">"Cybersecurity"</tspan>, <tspan class="string">"Full-Stack"</tspan><tspan class="keyword">]</tspan>,</text>
+        <text x="20" y="75"><tspan class="accent">"specialization"</tspan>: <tspan class="keyword">[</tspan><tspan class="string">"Cybersecurity"</tspan>, <tspan class="string">"Quantitative programming"</tspan>, <tspan class="string">"Full-Stack"</tspan><tspan class="keyword">]</tspan>,</text>
       </g>
       <g class="line l5">
         <text x="20" y="100"><tspan class="accent">"languages"</tspan>: <tspan class="keyword">[</tspan></text>
@@ -93,10 +93,10 @@
         <text x="20" y="200"><tspan class="accent">"active_deployments"</tspan>: <tspan class="keyword">{</tspan></text>
       </g>
       <g class="line l10">
-        <text x="40" y="225"><tspan class="accent">"hub"</tspan>: <tspan class="string">"HexCent // Multi-Project Platform"</tspan>,</text>
+        <text x="40" y="225"><tspan class="accent">"hub"</tspan>: <tspan class="string">"HexCent // Project Integration Platform"</tspan>,</text>
       </g>
       <g class="line l11">
-        <text x="40" y="250"><tspan class="accent">"quant_engine"</tspan>: <tspan class="string">"Hexnet v3.0 // High-Throughput Backtester"</tspan></text>
+        <text x="40" y="250"><tspan class="accent">"quant_engine"</tspan>: <tspan class="string">"Hexnet v3.0 // Quantitative Backtester"</tspan></text>
       </g>
       <g class="line l12">
         <text x="20" y="275"><tspan class="keyword">}</tspan>,</text>
