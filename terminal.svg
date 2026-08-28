@@ -1,117 +1,148 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 490" width="100%" max-width="720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="100%" max-width="720">
   <style>
+    /* Frame & Canvas */
     .bg { fill: #020406; stroke: #1e293b; stroke-width: 1.5; rx: 0px; }
-    .header { fill: #070b11; rx: 0px; border-bottom: 1px solid #1e293b; }
+    .header { fill: #0d1520; }
+    .header-border { stroke: #1e293b; stroke-width: 1; }
+    
+    /* Window Controls */
     .dot { stroke-width: 0; }
     .dot-red { fill: #ff3366; }
     .dot-yellow { fill: #f59e0b; }
     .dot-green { fill: #00ff66; }
-    .title { font-family: 'Fira Code', Consolas, Monaco, monospace; font-size: 12px; fill: #64748b; text-anchor: middle; letter-spacing: 0.1em; }
     
-    .terminal-text { font-family: 'Fira Code', Consolas, Monaco, monospace; font-size: 13px; fill: #cbd5e1; }
+    /* Header Typography */
+    .title {
+      font-family: 'Fira Code', 'Geist Mono', Consolas, monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-anchor: middle;
+    }
+    
+    /* Terminal Content */
+    .terminal-text {
+      font-family: 'Fira Code', 'Geist Mono', Consolas, monospace;
+      font-size: 13px;
+      fill: #cbd5e1;
+    }
+    
     .prompt { fill: #00f0ff; font-weight: bold; }
     .cmd { fill: #00ff66; }
     .accent { fill: #00f0ff; }
     .string { fill: #93c5fd; }
     .keyword { fill: #f43f5e; }
-    .comment { fill: #475569; font-style: italic; }
     
-    .terminal-window {
-      transform-origin: 360px 245px;
-      animation: openTerminal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    /* Fade Animations */
+    .line {
+      opacity: 0;
+      animation: fadeInLine 0.18s ease-out forwards;
     }
     
-    .line { opacity: 0; animation: fadeInLine 0.2s ease-out forwards; }
-    .cursor { animation: blink 0.9s infinite; fill: #00f0ff; }
-    
-    @keyframes openTerminal {
-      0% { transform: scale(0.85); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .cursor {
+      fill: #00f0ff;
+      opacity: 0;
+      animation: cursorBlink 0.9s infinite;
+      animation-delay: 1.65s;
     }
+    
     @keyframes fadeInLine {
       0% { opacity: 0; transform: translateY(2px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+    
+    @keyframes cursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
     }
     
-    .l1  { animation-delay: 0.20s; }
-    .l2  { animation-delay: 0.35s; }
-    .l3  { animation-delay: 0.45s; }
-    .l4  { animation-delay: 0.55s; }
-    .l5  { animation-delay: 0.65s; }
-    .l6  { animation-delay: 0.75s; }
-    .l7  { animation-delay: 0.85s; }
-    .l8  { animation-delay: 0.95s; }
-    .l9  { animation-delay: 1.05s; }
-    .l10 { animation-delay: 1.15s; }
-    .l11 { animation-delay: 1.25s; }
-    .l12 { animation-delay: 1.35s; }
-    .l13 { animation-delay: 1.45s; }
-    .l14 { animation-delay: 1.55s; }
+    /* Cascading Stagger */
+    .l1  { animation-delay: 0.15s; }
+    .l2  { animation-delay: 0.25s; }
+    .l3  { animation-delay: 0.35s; }
+    .l4  { animation-delay: 0.45s; }
+    .l5  { animation-delay: 0.55s; }
+    .l6  { animation-delay: 0.65s; }
+    .l7  { animation-delay: 0.75s; }
+    .l8  { animation-delay: 0.85s; }
+    .l9  { animation-delay: 0.95s; }
+    .l10 { animation-delay: 1.05s; }
+    .l11 { animation-delay: 1.15s; }
+    .l12 { animation-delay: 1.25s; }
+    .l13 { animation-delay: 1.35s; }
+    .l14 { animation-delay: 1.45s; }
+    .l15 { animation-delay: 1.60s; }
   </style>
   
-  <g class="terminal-window">
-    <rect width="720" height="490" class="bg" />
-    <path d="M0,0 L720,0 L720,34 L0,34 Z" class="header" />
-    <line x1="0" y1="34" x2="720" y2="34" stroke="#1e293b" stroke-width="1" />
+  <!-- Terminal Frame -->
+  <rect width="720" height="400" class="bg" />
+  
+  <!-- Window Header Bar -->
+  <path d="M0,0 L720,0 L720,34 L0,34 Z" class="header" />
+  <line x1="0" y1="34" x2="720" y2="34" class="header-border" />
+  
+  <!-- Window Control Buttons -->
+  <circle cx="18" cy="17" r="5" class="dot dot-red" />
+  <circle cx="34" cy="17" r="5" class="dot dot-yellow" />
+  <circle cx="50" cy="17" r="5" class="dot dot-green" />
+  
+  <!-- High-Contrast Header Title -->
+  <text x="360" y="21" class="title">
+    <tspan fill="#00f0ff">lh-exe</tspan><tspan fill="#475569">@</tspan><tspan fill="#94a3b8">hexcent-core</tspan><tspan fill="#475569">:~</tspan>
+  </text>
+  
+  <!-- Terminal Content Body -->
+  <g transform="translate(24, 60)" class="terminal-text">
+    <!-- Command Line -->
+    <g class="line l1">
+      <text x="0" y="0"><tspan class="prompt">lh-exe@hexcent:~$</tspan> <tspan class="cmd">cat system_manifest.json</tspan></text>
+    </g>
     
-    <circle cx="18" cy="17" r="5" class="dot dot-red" />
-    <circle cx="34" cy="17" r="5" class="dot dot-yellow" />
-    <circle cx="50" cy="17" r="5" class="dot dot-green" />
-    <text x="360" y="21" class="title">lh-exe@hexcent-core:~$</text>
+    <!-- JSON Content -->
+    <g class="line l2">
+      <text x="0" y="22"><tspan class="keyword">{</tspan></text>
+    </g>
+    <g class="line l3">
+      <text x="18" y="44"><tspan class="accent">"operator"</tspan>: <tspan class="string">"Lin Han"</tspan>,</text>
+    </g>
+    <g class="line l4">
+      <text x="18" y="66"><tspan class="accent">"specialization"</tspan>: <tspan class="keyword">[</tspan><tspan class="string">"Quantitative Systems"</tspan>, <tspan class="string">"Cybersecurity"</tspan>, <tspan class="string">"Full-Stack"</tspan><tspan class="keyword">]</tspan>,</text>
+    </g>
+    <g class="line l5">
+      <text x="18" y="88"><tspan class="accent">"languages"</tspan>: <tspan class="keyword">[</tspan></text>
+    </g>
+    <g class="line l6">
+      <text x="36" y="110"><tspan class="string">"Python"</tspan>, <tspan class="string">"C++"</tspan>, <tspan class="string">"C"</tspan>, <tspan class="string">"TypeScript"</tspan>, <tspan class="string">"JavaScript"</tspan>,</text>
+    </g>
+    <g class="line l7">
+      <text x="36" y="132"><tspan class="string">"Java"</tspan>, <tspan class="string">"OCaml"</tspan>, <tspan class="string">"Lua"</tspan>, <tspan class="string">"Pine Script"</tspan>, <tspan class="string">"SQL"</tspan></text>
+    </g>
+    <g class="line l8">
+      <text x="18" y="154"><tspan class="keyword">]</tspan>,</text>
+    </g>
+    <g class="line l9">
+      <text x="18" y="176"><tspan class="accent">"active_deployments"</tspan>: <tspan class="keyword">{</tspan></text>
+    </g>
+    <g class="line l10">
+      <text x="36" y="198"><tspan class="accent">"hub"</tspan>: <tspan class="string">"HexCent // Multi-Project Platform"</tspan>,</text>
+    </g>
+    <g class="line l11">
+      <text x="36" y="220"><tspan class="accent">"quant_engine"</tspan>: <tspan class="string">"Hexnet v3.0 // High-Throughput Backtester"</tspan></text>
+    </g>
+    <g class="line l12">
+      <text x="18" y="242"><tspan class="keyword">}</tspan>,</text>
+    </g>
+    <g class="line l13">
+      <text x="18" y="264"><tspan class="accent">"status"</tspan>: <tspan class="string">"nominal // active_execution"</tspan></text>
+    </g>
+    <g class="line l14">
+      <text x="0" y="286"><tspan class="keyword">}</tspan></text>
+    </g>
     
-    <g transform="translate(24, 65)" class="terminal-text">
-      <g class="line l1">
-        <text x="0" y="0"><tspan class="prompt">lh-exe@hexcent:~$</tspan> <tspan class="cmd">cat system_manifest.json</tspan></text>
-      </g>
-      
-      <g class="line l2">
-        <text x="0" y="25"><tspan class="keyword">{</tspan></text>
-      </g>
-      <g class="line l3">
-        <text x="20" y="50"><tspan class="accent">"operator"</tspan>: <tspan class="string">"Lin Han"</tspan>,</text>
-      </g>
-      <g class="line l4">
-        <text x="20" y="75"><tspan class="accent">"specialization"</tspan>: <tspan class="keyword">[</tspan><tspan class="string">"Cybersecurity"</tspan>, <tspan class="string">"Quantitative programming"</tspan>, <tspan class="string">"Full-Stack"</tspan><tspan class="keyword">]</tspan>,</text>
-      </g>
-      <g class="line l5">
-        <text x="20" y="100"><tspan class="accent">"languages"</tspan>: <tspan class="keyword">[</tspan></text>
-      </g>
-      <g class="line l6">
-        <text x="40" y="125"><tspan class="string">"Python"</tspan>, <tspan class="string">"C++"</tspan>, <tspan class="string">"C"</tspan>, <tspan class="string">"TypeScript"</tspan>, <tspan class="string">"JavaScript"</tspan>,</text>
-      </g>
-      <g class="line l7">
-        <text x="40" y="150"><tspan class="string">"Java"</tspan>, <tspan class="string">"OCaml"</tspan>, <tspan class="string">"Lua"</tspan>, <tspan class="string">"Pine Script"</tspan>, <tspan class="string">"SQL"</tspan></text>
-      </g>
-      <g class="line l8">
-        <text x="20" y="175"><tspan class="keyword">]</tspan>,</text>
-      </g>
-      <g class="line l9">
-        <text x="20" y="200"><tspan class="accent">"active_deployments"</tspan>: <tspan class="keyword">{</tspan></text>
-      </g>
-      <g class="line l10">
-        <text x="40" y="225"><tspan class="accent">"hub"</tspan>: <tspan class="string">"HexCent // Project Integration Platform"</tspan>,</text>
-      </g>
-      <g class="line l11">
-        <text x="40" y="250"><tspan class="accent">"quant_engine"</tspan>: <tspan class="string">"Hexnet v3.0 // Quantitative Backtester"</tspan></text>
-      </g>
-      <g class="line l12">
-        <text x="20" y="275"><tspan class="keyword">}</tspan>,</text>
-      </g>
-      <g class="line l13">
-        <text x="20" y="300"><tspan class="accent">"status"</tspan>: <tspan class="string">"nominal // active_execution"</tspan></text>
-      </g>
-      <g class="line l14">
-        <text x="0" y="325"><tspan class="keyword">}</tspan></text>
-      </g>
-      
-      <g class="line l14" transform="translate(0, 355)">
-        <text x="0" y="0"><tspan class="prompt">lh-exe@hexcent:~$</tspan></text>
-        <rect x="145" y="-11" width="8" height="14" class="cursor" />
-      </g>
+    <!-- Final Prompt & Delayed Standalone Blinking Cursor -->
+    <g class="line l15">
+      <text x="0" y="312"><tspan class="prompt">lh-exe@hexcent:~$</tspan></text>
+      <rect x="148" y="300" width="8" height="15" class="cursor" />
     </g>
   </g>
 </svg>
