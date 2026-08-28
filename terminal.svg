@@ -1,29 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400">
   <style>
     <![CDATA[
-    .bg { fill: #020406; stroke: #1e293b; stroke-width: 1.5; }
-    .header { fill: #070b11; }
-    .header-border { stroke: #1e293b; stroke-width: 1; }
+    /* Canvas & Base Geometry */
+    .bg { fill: #020406; stroke: #334155; stroke-width: 1.5; }
     
-    /* Outlined Title Tab Container */
-    .title-tab {
-      fill: #020406;
-      stroke: #334155;
-      stroke-width: 1;
+    /* Outlined High-Contrast Top Tab Header */
+    .header-box { 
+      fill: #0a111a; 
+      stroke: #38bdf8; 
+      stroke-width: 1.5; 
     }
-    .title-tab-active-line {
-      stroke: #00f0ff;
-      stroke-width: 1.5;
+    .header-divider { 
+      stroke: #00f0ff; 
+      stroke-width: 1; 
+      opacity: 0.9;
     }
     
+    /* Control Dots */
     .dot { stroke-width: 0; }
     .dot-red { fill: #ff3366; }
     .dot-yellow { fill: #f59e0b; }
     .dot-green { fill: #00ff66; }
     
+    /* Typography */
     .title {
       font-family: 'Fira Code', 'Geist Mono', Consolas, monospace;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-anchor: middle;
@@ -41,6 +43,7 @@
     .string { fill: #93c5fd; }
     .keyword { fill: #f43f5e; }
     
+    /* Sequential Animations */
     .line {
       opacity: 0;
       animation: fadeInLine 0.18s ease-out forwards;
@@ -82,32 +85,30 @@
   </style>
   
   <!-- Outer Terminal Window Frame -->
-  <rect width="720" height="400" class="bg" />
+  <rect x="0.75" y="0.75" width="718.5" height="398.5" class="bg" />
   
-  <!-- Top Header Bar Backing -->
-  <path d="M0,0 L720,0 L720,34 L0,34 Z" class="header" />
-  <line x1="0" y1="34" x2="720" y2="34" class="header-border" />
+  <!-- Explicit Outlined Top Header Container -->
+  <rect x="0.75" y="0.75" width="718.5" height="34" class="header-box" />
+  <line x1="0.75" y1="34.75" x2="719.25" y2="34.75" class="header-divider" />
   
-  <!-- Window Control Dots -->
-  <circle cx="18" cy="17" r="5" class="dot dot-red" />
-  <circle cx="34" cy="17" r="5" class="dot dot-yellow" />
-  <circle cx="50" cy="17" r="5" class="dot dot-green" />
+  <!-- Window Controls -->
+  <circle cx="20" cy="18" r="5" class="dot dot-red" />
+  <circle cx="36" cy="18" r="5" class="dot dot-yellow" />
+  <circle cx="52" cy="18" r="5" class="dot dot-green" />
   
-  <!-- Outlined Centered Tab Container -->
-  <g transform="translate(245, 5)">
-    <rect width="230" height="24" class="title-tab" />
-    <line x1="0" y1="0" x2="230" y2="0" class="title-tab-active-line" />
-    <text x="115" y="16" class="title">
-      <tspan fill="#00f0ff">lh-exe</tspan><tspan fill="#64748b">@</tspan><tspan fill="#e2e8f0">hexcent-core</tspan><tspan fill="#64748b">:~</tspan>
-    </text>
-  </g>
+  <!-- Header Title -->
+  <text x="360" y="22" class="title">
+    <tspan fill="#00f0ff">lh-exe</tspan><tspan fill="#64748b">@</tspan><tspan fill="#e2e8f0">hexcent-core</tspan><tspan fill="#64748b">:~</tspan>
+  </text>
   
-  <!-- Terminal Content Body -->
-  <g transform="translate(24, 60)" class="terminal-text">
+  <!-- Shell Body -->
+  <g transform="translate(24, 62)" class="terminal-text">
+    <!-- Command Line -->
     <g class="line l1">
       <text x="0" y="0"><tspan class="prompt">lh-exe@hexcent:~$</tspan> <tspan class="cmd">cat system_manifest.json</tspan></text>
     </g>
     
+    <!-- JSON Content -->
     <g class="line l2">
       <text x="0" y="22"><tspan class="keyword">{</tspan></text>
     </g>
@@ -148,6 +149,7 @@
       <text x="0" y="286"><tspan class="keyword">}</tspan></text>
     </g>
     
+    <!-- Final Prompt with Delayed Blinking Cursor -->
     <g class="line l15">
       <text x="0" y="312"><tspan class="prompt">lh-exe@hexcent:~$</tspan></text>
       <rect x="148" y="300" width="8" height="15" class="cursor" />
